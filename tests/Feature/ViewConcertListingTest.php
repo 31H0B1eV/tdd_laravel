@@ -9,8 +9,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\BrowserKitTestCase;
 
-
-
 class ViewConcertListingTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
