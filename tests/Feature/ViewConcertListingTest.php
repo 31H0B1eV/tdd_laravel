@@ -28,6 +28,7 @@ class ViewConcertListingTest extends BrowserKitTestCase
             'city' => 'Laraville',
             'state' => 'ON',
             'zip' => '17916',
+            'published_at' => Carbon::parse('+2 weeks'),
             'additional_information' => 'For tickets, call (555) 555-5555.',
         ]);
 
@@ -45,5 +46,17 @@ class ViewConcertListingTest extends BrowserKitTestCase
         $this->see('123 Example Lane');
         $this->see('Laraville, ON 17916');
         $this->see('For tickets, call (555) 555-5555.');
+    }
+
+    /** @test */
+    public function user_cannot_view_unpublished_concert_listings()
+    {
+        $concert = factory(Concert::class)->create([
+            'published_at' => null
+        ]);
+
+        $this->get('/concerts/' . $concert->id);
+
+        $this->assertResponseStatus(404);
     }
 }

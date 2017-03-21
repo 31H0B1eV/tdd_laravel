@@ -44,15 +44,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($this->isHttpException($exception))
-        {
-            return $this->renderHttpException($exception);
-        }
+        // remove woops for correct $this->assertResponseStatus(404); testing. Woops package raise error even if 404 desired result.
+        // if ($this->isHttpException($exception))
+        // {
+        //     return $this->renderHttpException($exception);
+        // }
 
-        if (config('app.debug'))
-        {
-            return $this->renderExceptionWithWhoops($exception);
-        }
+        // if (config('app.debug'))
+        // {
+        //     return $this->renderExceptionWithWhoops($exception);
+        // }
 
         return parent::render($request, $exception);
     }
