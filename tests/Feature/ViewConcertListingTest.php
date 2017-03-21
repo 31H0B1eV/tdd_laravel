@@ -14,7 +14,7 @@ class ViewConcertListingTest extends BrowserKitTestCase
     use DatabaseMigrations;
 
     /** @test */
-    public function user_can_view_a_concert_listing()
+    public function user_can_view_a_published_concert_listing()
     {
         // Arrange
         // Create a concert
