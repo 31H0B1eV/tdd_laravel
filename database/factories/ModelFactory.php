@@ -36,6 +36,7 @@ $factory->define(App\Concert::class, function(Faker\Generator $faker) {
         'city' => 'Laraville',
         'state' => 'ON',
         'zip' => '17916',
+        'published_at' => Carbon::parse('-1 week'),
         'additional_information' => 'For tickets, call (555) 555-5555.',
     ];
 });
