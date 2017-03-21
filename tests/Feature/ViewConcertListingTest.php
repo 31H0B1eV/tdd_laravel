@@ -18,7 +18,7 @@ class ViewConcertListingTest extends BrowserKitTestCase
     {
         // Arrange
         // Create a concert
-        $concert = factory(Concert::class)->create([
+        $concert = factory(Concert::class)->states('published')->create([
             'date' => Carbon::parse('December 31, 2016 8:00pm'),
         ]);
 
@@ -41,9 +41,7 @@ class ViewConcertListingTest extends BrowserKitTestCase
     /** @test */
     public function user_cannot_view_unpublished_concert_listings()
     {
-        $concert = factory(Concert::class)->create([
-            'published_at' => null
-        ]);
+        $concert = factory(Concert::class)->states('unpublished')->create();
 
         $this->get('/concerts/' . $concert->id);
 
