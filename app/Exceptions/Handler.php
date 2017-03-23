@@ -32,6 +32,8 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        // throw $exception; // make error messages on test fails more informative
+
         parent::report($exception);
     }
 

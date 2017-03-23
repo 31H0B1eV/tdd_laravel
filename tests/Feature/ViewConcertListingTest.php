@@ -1,7 +1,5 @@
 <?php
 
-namespace Feature;
-
 use App\Concert;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
